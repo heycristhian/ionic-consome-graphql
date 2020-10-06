@@ -25,3 +25,31 @@
 #container a {
   text-decoration: none;
 }
+
+.conteudo {
+  height: 50px;
+  position: relative; 
+}
+
+ion-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80% !important;
+  margin-left: 10% !important;
+  margin-bottom: 10px !important;
+  margin-top: 10px !important;
+  --ion-background-color:white;
+}
+
+ion-content{
+  --ion-background-color:#A0A0A0;
+}
+
+ion-title {
+  text-align: center !important;
+}
+
+.main-card {
+  margin-top: 60px !important;
+}
