@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="card-content">
+    <ion-card-header>
+      <ion-card-title>
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-img src="/assets/img/gymnast.png"></ion-img>
+      </ion-item>
+      <ion-item lines="none" class="item-list">
+        Username:
+        <ion-card class="card-list" slot="end">
+          <div class="center">
+            <ion-label color="light">heycristhian</ion-label>
+          </div>
+        </ion-card>
+      </ion-item>
+
+      <ion-item lines="none" class="item-list">
+        Age:
+        <ion-card class="card-list" slot="end">
+          <div class="center">
+            <ion-label color="light">25y</ion-label>
+          </div>
+        </ion-card>
+      </ion-item>
+
+      <ion-item lines="none" class="item-list">
+        Height:
+        <ion-card class="card-list" slot="end">
+          <div class="center">
+            <ion-label color="light">189 cm</ion-label>
+          </div>
+        </ion-card>
+      </ion-item>
+
+      <ion-item lines="none" class="item-list">
+        Weight:
+        <ion-card class="card-list" slot="end">
+          <div class="center">
+            <ion-label color="light">98 kgs</ion-label>
+          </div>
+        </ion-card>
+      </ion-item>
+    </ion-card-content>
+    <div class="div-btn-edit">
+      <ion-button color="warning" (click)="edit()">Edit</ion-button>
+      <ion-button color="primary" (click)="goBack()">Go back</ion-button>
+    </div>
+
+  </ion-card>
+</ion-content>

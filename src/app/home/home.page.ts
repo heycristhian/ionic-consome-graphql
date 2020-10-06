@@ -10,8 +10,15 @@ export class HomePage {
 
   constructor(private router: Router) {}
 
-  onClick() {
-    this.router.navigate(['food']);
+  navigateToFoods() {
+    this.router.navigate(['foods']);
   }
 
+  navigateToProfile() {
+    this.router.navigate(['profile']);
+  }
+
+  navigateToDiaries() {
+    this.router.navigate(['diaries']);
+  }
 }

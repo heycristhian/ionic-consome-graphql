@@ -23,6 +23,18 @@ const routes: Routes = [
     path: 'food',
     loadChildren: () => import('./food/food/food.module').then( m => m.FoodPageModule)
   },
+  {
+    path: 'foods',
+    loadChildren: () => import('./food/foods/foods.module').then( m => m.FoodsPageModule)
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./profile/profile/profile.module').then( m => m.ProfilePageModule)
+  },
+  {
+    path: 'profile-edit',
+    loadChildren: () => import('./profile/profile-edit/profile-edit.module').then( m => m.ProfileEditPageModule)
+  },
 ];
 
 @NgModule({

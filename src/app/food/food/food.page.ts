@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-food',
@@ -7,7 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FoodPage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) {
+
+  }
+
+  cancel() {
+    this.router.navigate(['foods']);
+  }
 
   ngOnInit() {
   }

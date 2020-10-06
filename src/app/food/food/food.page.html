@@ -1,9 +1,31 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>food</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
+    <ion-item lines="none">
+        <ion-img src="/assets/img/fruit-salad.png"></ion-img>
+    </ion-item>
+    <ion-list>
+        <ion-item>
+            <ion-label position="floating"> Name</ion-label>
+            <ion-input></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating" type="number">Protein</ion-label>
+            <ion-input></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating" type="number">Carbohydrate</ion-label>
+            <ion-input></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating" type="number">Fat</ion-label>
+            <ion-input></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating" type="number">Portion</ion-label>
+            <ion-input></ion-input>
+        </ion-item>
+
+    </ion-list>
+    <ion-button expand="block" class="first-btn" color="success">Done</ion-button>
+    <ion-button expand="block" color="danger" (click)="cancel()">Cancel</ion-button>
 
 </ion-content>
