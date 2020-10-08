@@ -1,9 +1,31 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>diary</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
+  <ion-item lines="none">
+    <ion-img src="/assets/img/writing.png"></ion-img>
+  </ion-item>
+  <ion-list>
+    <ion-item>
+      <ion-label>Food</ion-label>
+      <ion-select value="brown" okText="Okay" cancelText="Dismiss">
+        <ion-select-option value="brown">Arroz Cozido</ion-select-option>
+        <ion-select-option value="blonde">Feijão</ion-select-option>
+        <ion-select-option value="black">Coxão Duro</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Menu</ion-label>
+      <ion-select value="brown" okText="Okay" cancelText="Dismiss">
+        <ion-select-option value="brown">Breakfast</ion-select-option>
+        <ion-select-option value="blonde">Lunch</ion-select-option>
+        <ion-select-option value="black">Snacks</ion-select-option>
+        <ion-select-option value="black">Dinner</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Portion</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-button expand="block" class="first-btn" color="success">Done</ion-button>
+  <ion-button expand="block" color="danger" (click)="cancel()">Cancel</ion-button>
 
 </ion-content>
