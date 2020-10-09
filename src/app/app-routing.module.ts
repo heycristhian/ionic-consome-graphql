@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuardService } from './services/guards/auth-guard.service';
 
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule),
+    canActivate: [AuthGuardService]
   },
   {
     path: '',
@@ -13,27 +15,37 @@ const routes: Routes = [
   },
   {
     path: 'diaries',
-    loadChildren: () => import('./diary/diaries/diaries.module').then( m => m.DiariesPageModule)
+    loadChildren: () => import('./pages/diary/diaries/diaries.module').then( m => m.DiariesPageModule),
+    canActivate: [AuthGuardService]
   },
   {
     path: 'diary',
-    loadChildren: () => import('./diary/diary/diary.module').then( m => m.DiaryPageModule)
+    loadChildren: () => import('./pages/diary/diary/diary.module').then( m => m.DiaryPageModule),
+    canActivate: [AuthGuardService]
   },
   {
     path: 'food',
-    loadChildren: () => import('./food/food/food.module').then( m => m.FoodPageModule)
+    loadChildren: () => import('./pages/food/food/food.module').then( m => m.FoodPageModule),
+    canActivate: [AuthGuardService]
   },
   {
     path: 'foods',
-    loadChildren: () => import('./food/foods/foods.module').then( m => m.FoodsPageModule)
+    loadChildren: () => import('./pages/food/foods/foods.module').then( m => m.FoodsPageModule),
+    canActivate: [AuthGuardService]
   },
   {
     path: 'profile',
-    loadChildren: () => import('./profile/profile/profile.module').then( m => m.ProfilePageModule)
+    loadChildren: () => import('./pages/profile/profile/profile.module').then( m => m.ProfilePageModule),
+    canActivate: [AuthGuardService]
   },
   {
     path: 'profile-edit',
-    loadChildren: () => import('./profile/profile-edit/profile-edit.module').then( m => m.ProfileEditPageModule)
+    loadChildren: () => import('./pages/profile/profile-edit/profile-edit.module').then( m => m.ProfileEditPageModule),
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./pages/auth/login/login.module').then( m => m.LoginPageModule)
   },
 ];
 

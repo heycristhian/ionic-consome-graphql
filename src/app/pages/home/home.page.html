@@ -1,4 +1,5 @@
 <ion-content [fullscreen]="true" class="conteudo">
+  
   <ion-card class="main-card" (click)="navigateToDiaries()">
     <ion-card-header>
       <ion-card-subtitle>Your daily control</ion-card-subtitle>
@@ -30,4 +31,7 @@
       <ion-img src="assets/img/fitness.png" style="width: 50px;"></ion-img>
     </ion-card-content>
   </ion-card>
+  <ion-button color="danger" (click)="doSair()" class="btn-logout">
+    <ion-icon name="exit-outline" slot="end"></ion-icon>
+  </ion-button>
 </ion-content>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthServiceService } from 'src/app/services/auth/auth-service.service';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,10 @@ import { Router } from '@angular/router';
 })
 export class HomePage {
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private authRequest: AuthServiceService
+    ) {}
 
   navigateToFoods() {
     this.router.navigate(['foods']);
@@ -20,5 +24,10 @@ export class HomePage {
 
   navigateToDiaries() {
     this.router.navigate(['diaries']);
+  }
+
+  async doSair() {
+    await this.authRequest.doLogout();
+    this.router.navigate(["login"]);
   }
 }
