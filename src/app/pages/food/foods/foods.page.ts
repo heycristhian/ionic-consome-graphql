@@ -17,19 +17,21 @@ export class FoodsPage implements OnInit {
     private service: FoodDaoService,
   ) { }
 
-  async ngOnInit() {
+  ngOnInit() {
+  }
+
+  ionViewWillEnter() {
     this.doCarregar();
   }
 
-  doCarregar(): void {
+  doCarregar() {
     this.service.findAll().subscribe((foods) => {
       this.foods = foods;
     });
   }
 
   async edit() {
-    console.log('this.foods: ' + this.foods);
-    this.doCarregar();
+    console.log('editar clicado');
   }
 
   add() {
