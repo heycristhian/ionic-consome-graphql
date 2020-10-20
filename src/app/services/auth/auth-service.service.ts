@@ -19,7 +19,9 @@ export class AuthServiceService {
     return {
       username: "",
       password: "",
-      authenticate: false
+      userId: "",
+      authenticate: false,
+      token: ""
     };
   }
 
@@ -35,7 +37,7 @@ export class AuthServiceService {
   postLogin(data: any): Observable<any> {
     return this.http.post(env.url("auth"), {
       username: data.username,
-      password: data.password
+      password: data.password,
     });
   }
 
@@ -45,13 +47,14 @@ export class AuthServiceService {
         console.log('response:' + response);
 
         const token: string = response["token"];
+        const userId: string = response["userId"]
         
         if (response['token']) {
-          await this.updateAuthRequest(data.username, data.password, true, token);
+          await this.updateAuthRequest(data.username, data.password, userId, true, token);
 
           return observer.next(this.authRequest?.authenticate);
         } else {
-          await this.updateAuthRequest("", "", false, "");
+          await this.updateAuthRequest("", "", "", false, "");
 
           return observer.next(false);
         }
@@ -60,17 +63,19 @@ export class AuthServiceService {
   }
 
   async doLogout(): Promise<void> {
-    await this.updateAuthRequest("", "", false, "");
+    await this.updateAuthRequest("", "", "", false, "");
   }
 
   async updateAuthRequest(
     username: string,
     password: string,
+    userId: string,
     authenticate: boolean,
     token: string,
   ): Promise<void> {
     this.authRequest.username = username;
     this.authRequest.password = password;
+    this.authRequest.userId = userId;
     this.authRequest.authenticate = authenticate;
     this.authRequest.token = token;
 

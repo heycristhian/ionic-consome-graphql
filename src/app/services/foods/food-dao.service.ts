@@ -12,26 +12,67 @@ import { from, Observable } from 'rxjs';
 })
 export class FoodDaoService {
 
+ 
+
   private foods: Food[] = [];
+  private food: Food;
 
   constructor(
-    private http: HttpClient,
     private storage: Storage
   ) { }
 
-  /*
-  async findAll(): Promise<Food[]> {
+  findAll(): Observable<Food[]> {
+    const observable = from(this.dataFindAll());
+    return observable;
+  }
+
+  async delete(id: string): Promise<boolean> {
+    let validateDelete = false;
     let authRequest = await this.storage.get("auth-data")
     let token: string = "Bearer " + authRequest['token'];
 
     fetch(env.url('graphql'), {
       method: 'POST',
-      headers: {"Content-Type": "application/json",
-                "Authorization": token},
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": token
+      },
       body: JSON.stringify({
         query: `
-          query {
-            foods {
+          mutation {
+            deleteFood(id:"${id}")
+          }
+        `
+      })
+    })
+    .then(res => res.json())
+    .then(data => {
+      validateDelete = data.deleteFood;
+      return validateDelete;
+    });
+    return validateDelete;
+  }
+
+  async save(food: Food): Promise<void> {
+    let authRequest = await this.storage.get("auth-data")
+    let token: string = "Bearer " + authRequest['token'];
+
+    fetch(env.url('graphql'), {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": token
+      },
+      body: JSON.stringify({
+        query: `
+          mutation {
+            saveFood(foodInput: {
+              name:"${food.name}"
+              protein:${food.protein}
+              carbohydrate:${food.carbohydrate}
+              fat:${food.fat}
+              portion:${food.portion}
+            }) {
               name, protein, carbohydrate, fat, portion
             }
           }
@@ -40,19 +81,12 @@ export class FoodDaoService {
     })
     .then(res => res.json())
     .then(data => {
-      this.foods = data.data.foods;
-      console.log(this.foods)
-      return this.foods
+      console.log('data');
+      console.log(data);
     });
-    return this.foods;
-  }*/
-
-  findAll(): Observable<Food[]> {
-    const observable = from(this.data());
-    return observable;
   }
 
-  async data(): Promise<Food[]> {
+  async dataFindAll(): Promise<Food[]> {
     let authRequest = await this.storage.get("auth-data")
     let token: string = "Bearer " + authRequest['token'];
 
@@ -66,7 +100,7 @@ export class FoodDaoService {
         query: `
           query {
             foods {
-              name, protein, carbohydrate, fat, portion
+              id, name, protein, carbohydrate, fat, portion
             }
           }
         `

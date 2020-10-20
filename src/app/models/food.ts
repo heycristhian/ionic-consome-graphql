@@ -9,4 +9,8 @@ export class Food {
     static parse(args: any): Food {
         return Object.assign(new Food(), args);
     }
+
+    toString(): void {
+        console.log(`Food.toString: ${this.name}`);
+    }
 }

@@ -1,3 +1,26 @@
 ion-card {
     width: 100%;
 }
+
+.update-icon {
+    position: fixed;
+    bottom: 0px;
+    right: 4px;
+}
+
+.sub-toolbar {
+    position: fixed;
+    top: 40px;
+    z-index: 999;
+    right: 0px;
+    width: 100%;
+    --ion-background-color:transparent !important;
+}
+
+ion-list {
+    margin-top: 10px;
+}
+
+.icon-delete {
+    padding: 0px;
+}

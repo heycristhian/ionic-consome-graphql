@@ -24,7 +24,6 @@ export class LoginPage implements OnInit {
 
   doConfirmar(): void {
     console.log(this.data);
-
     this.authService.doLogin(this.data).subscribe((result) => {
       console.log('result: ' + result);
       this.router.navigate(['home']);
