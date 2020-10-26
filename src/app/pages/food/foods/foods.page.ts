@@ -27,8 +27,8 @@ export class FoodsPage implements OnInit {
   }
 
   async load() {
-    this.foods = [];
     this.service.findAll().subscribe((foods) => {
+      this.foods = [];
       this.foods = foods.reverse();
     });
   }

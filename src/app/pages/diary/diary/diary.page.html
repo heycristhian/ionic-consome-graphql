@@ -5,27 +5,25 @@
   <ion-list>
     <ion-item>
       <ion-label>Food</ion-label>
-      <ion-select value="brown" okText="Okay" cancelText="Dismiss">
-        <ion-select-option value="brown">Arroz Cozido</ion-select-option>
-        <ion-select-option value="blonde">Feijão</ion-select-option>
-        <ion-select-option value="black">Coxão Duro</ion-select-option>
+      <ion-select value="brown" okText="Okay" cancelText="Dismiss" (ionChange)="changeFood($event)"> 
+        <ion-select-option value="{{ food.id }}" *ngFor="let food of foods">{{ food.name }}</ion-select-option>
       </ion-select>
     </ion-item>
     <ion-item>
       <ion-label>Menu</ion-label>
-      <ion-select value="brown" okText="Okay" cancelText="Dismiss">
-        <ion-select-option value="brown">Breakfast</ion-select-option>
-        <ion-select-option value="blonde">Lunch</ion-select-option>
-        <ion-select-option value="black">Snacks</ion-select-option>
-        <ion-select-option value="black">Dinner</ion-select-option>
+      <ion-select value="brown" okText="Okay" cancelText="Dismiss" (ionChange)="changeMenu($event)">
+        <ion-select-option value="BREAKFAST">Breakfast</ion-select-option>
+        <ion-select-option value="LUNCH">Lunch</ion-select-option>
+        <ion-select-option value="SNACK">Snacks</ion-select-option>
+        <ion-select-option value="DINNER">Dinner</ion-select-option>
       </ion-select>
     </ion-item>
     <ion-item>
       <ion-label position="fixed">Portion</ion-label>
-      <ion-input></ion-input>
+      <ion-input [(ngModel)]="diary.portion"></ion-input>
     </ion-item>
   </ion-list>
-  <ion-button expand="block" class="first-btn" color="success">Done</ion-button>
+  <ion-button expand="block" class="first-btn" color="success" (click)="save()">Done</ion-button>
   <ion-button expand="block" color="danger" (click)="cancel()">Cancel</ion-button>
 
 </ion-content>

@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Food } from 'src/app/models/food';
 import { env } from '../../environments/environments';
@@ -11,11 +10,7 @@ import { from, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class FoodDaoService {
-
- 
-
   private foods: Food[] = [];
-  private food: Food;
 
   constructor(
     private storage: Storage

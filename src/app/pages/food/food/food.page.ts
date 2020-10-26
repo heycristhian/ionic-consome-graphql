@@ -33,12 +33,12 @@ export class FoodPage implements OnInit {
     this.router.navigate(['foods']);
   }
 
-  confirm(): void {
+  save(): void {
     const food: Food = Food.parse(this.data);
     console.log('id:' + food.id);
     food.toString();
 
-    this.service.save(food).then((foods) => {
+    this.service.save(food).then((food) => {
       this.presentToast("Food saved successfully");
       this.toClean();
       this.router.navigate(['foods']);
