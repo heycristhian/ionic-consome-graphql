@@ -39,4 +39,13 @@ export class ProfilePage implements OnInit {
       this.user = user;
     });
   }
+
+  async doRefresh(event) {
+    this.load()
+      .then(() => {
+        setTimeout(() => {
+          event.target.complete();
+        }, 500);
+      });
+  }
 }

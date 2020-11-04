@@ -2,11 +2,51 @@ import { Injectable } from '@angular/core';
 import { Diary } from 'src/app/models/diary';
 import { Storage } from "@ionic/storage";
 import { env } from 'src/app/environments/environments';
+import { from } from 'rxjs';
+import { TotalCalorie } from 'src/app/models/total-calorie';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DiaryDaoService {
+
+  private totalCalorie: TotalCalorie[] = [];
+
+  totalCalories(): Observable<TotalCalorie[]>{
+    const observable = from(this.dataTotalCalories());
+    return observable;
+  }
+
+  async dataTotalCalories(): Promise<TotalCalorie[]> {
+    let authRequest = await this.storage.get("auth-data")
+    let token: string = "Bearer " + authRequest['token'];
+    let id: string = authRequest['userId'];
+
+    fetch(env.url('graphql'), {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": token
+      },
+      body: JSON.stringify({
+        query: `
+          query {
+            totalCalorie(userId:"${id}") {
+              recommendedCalorie, total, date    
+             }
+          }
+        `
+      })
+    })
+    .then(res => res.json())
+    .then(data => {
+      this.totalCalorie = data.data.totalCalorie;
+      console.log(this.totalCalorie)
+      return this.totalCalorie
+    });
+    return this.totalCalorie
+  }
 
   constructor(
     private storage: Storage

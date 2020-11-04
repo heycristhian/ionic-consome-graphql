@@ -74,4 +74,13 @@ export class DiaryPage implements OnInit {
     this.diary.portion = 0;
     this.diary.userId = '';
   }
+
+  async doRefresh(event) {
+    this.loadFoods()
+      .then(() => {
+        setTimeout(() => {
+          event.target.complete();
+        }, 500);
+      });
+  }
 }
