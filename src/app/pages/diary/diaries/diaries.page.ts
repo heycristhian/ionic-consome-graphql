@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { TotalCalorie } from 'src/app/models/total-calorie';
 import { DiaryDaoService } from 'src/app/services/diaries/diary-dao.service';
 
@@ -21,7 +21,9 @@ export class DiariesPage implements OnInit {
   }
 
   async ionViewWillEnter() {
-    await this.load();
+    setTimeout(() => {
+      this.load();
+    }, 500);
   }
 
   async load() {
@@ -42,8 +44,19 @@ export class DiariesPage implements OnInit {
       .then(() => {
         setTimeout(() => {
           event.target.complete();
-        }, 500);
+        }, 1000);
       });
+  }
+
+  navigateFoodDetail(date: string) {
+    
+    const extras: NavigationExtras = {
+      queryParams: {
+        date: date 
+      }
+    };
+    
+    this.router.navigate(['diary-detail'], extras);
   }
 
 }

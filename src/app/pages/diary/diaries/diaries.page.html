@@ -22,7 +22,7 @@
       <ion-label color="danger">DATE</ion-label>
       <ion-label color="danger">CALORIES</ion-label>
     </ion-item>
-    <ion-item *ngFor="let total of totalCalorie">
+    <ion-item (click)="navigateFoodDetail(total.date)" *ngFor="let total of totalCalorie">
       <ion-label>{{ total.date }}</ion-label>
       <ion-label>{{ total.total }} / {{ total.recommendedCalorie }}</ion-label>
     </ion-item>

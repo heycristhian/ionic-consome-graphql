@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ProfileEditPageRoutingModule } from './profile-edit-routing.module';
+import { DiaryDetailPageRoutingModule } from './diary-detail-routing.module';
 
-import { ProfileEditPage } from './profile-edit.page';
+import { DiaryDetailPage } from './diary-detail.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ProfileEditPageRoutingModule
+    DiaryDetailPageRoutingModule
   ],
-  declarations: [ProfileEditPage]
+  declarations: [DiaryDetailPage]
 })
-export class ProfileEditPageModule {}
+export class DiaryDetailPageModule {}

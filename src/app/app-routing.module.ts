@@ -39,13 +39,12 @@ const routes: Routes = [
     canActivate: [AuthGuardService]
   },
   {
-    path: 'profile-edit',
-    loadChildren: () => import('./pages/profile/profile-edit/profile-edit.module').then( m => m.ProfileEditPageModule),
-    canActivate: [AuthGuardService]
-  },
-  {
     path: 'login',
     loadChildren: () => import('./pages/auth/login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'diary-detail',
+    loadChildren: () => import('./pages/diary/diary-detail/diary-detail.module').then( m => m.DiaryDetailPageModule)
   },
 ];
 

@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>diary-detail</ion-title>
+
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="chevron-down-circle-outline" pullingText="Pull to refresh"
+      refreshingSpinner="circles" refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+
+  <ion-item lines="none" class="item-list">
+    Protein:
+    <ion-card class="card-list" slot="end">
+      <div class="center">
+        <ion-label color="light">{{  diaryInfo == null ? 0 : diaryInfo?.diaryDetail?.protein }}</ion-label>
+      </div>
+    </ion-card>
+  </ion-item>
+
+  <ion-item lines="none" class="item-list">
+    Carbohydrate:
+    <ion-card class="card-list" slot="end">
+      <div class="center">
+        <ion-label color="light">{{  diaryInfo == null ? 0 : diaryInfo?.diaryDetail?.carbohydrate }}</ion-label>
+      </div>
+    </ion-card>
+  </ion-item>
+
+  <ion-item lines="none" class="item-list">
+    Fat:
+    <ion-card class="card-list" slot="end">
+      <div class="center">
+        <ion-label color="light">{{  diaryInfo == null ? 0 : diaryInfo?.diaryDetail?.fat }}</ion-label>
+      </div>
+    </ion-card>
+  </ion-item>
+
+  <ion-item lines="none" class="item-list">
+    Total Calories:
+    <ion-card class="card-list" slot="end">
+      <div class="center">
+        <ion-label color="light">{{  diaryInfo == null ? 0 : diaryInfo?.diaryDetail?.calorie }}</ion-label>
+      </div>
+    </ion-card>
+  </ion-item>
+
+  <ion-item class="devider"></ion-item>
+
+  <ion-card class="diary" *ngFor="let diary of diaryInfo?.diaries">
+    <ion-item style="padding: 0px; padding-inline-start: 0px; padding-block-start: 0px;">
+      <ion-label class="label-card">{{ diary.food.name }}</ion-label>
+    </ion-item>
+  
+    <ion-card-content>
+      <p>Portion: {{ diary.portion }}g</p>
+      <p>Protein: {{ diary.protein }}g</p>
+      <p>Carbohydrate: {{ diary.carbohydrate }}g</p>
+      <p>Fat: {{ diary.fat }}g</p>
+      <p>Calories: {{ diary.calories }}g</p>
+      <p>Menu: {{ diary.menu }}</p>
+    </ion-card-content>
+  </ion-card>
+  <div class="btn">
+    <ion-button class="btn-back" color="primary" (click)="goBack()">Go back</ion-button>
+  </div>
+</ion-content>

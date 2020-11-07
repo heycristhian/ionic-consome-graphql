@@ -23,11 +23,9 @@ export class ProfilePage implements OnInit {
   }
 
   async ionViewWillEnter() {
-    await this.load();
-  }
-
-  edit() {
-    this.router.navigate(['profile-edit'])
+    setTimeout(() => {
+      this.load();
+    }, 1000);
   }
 
   goBack() {

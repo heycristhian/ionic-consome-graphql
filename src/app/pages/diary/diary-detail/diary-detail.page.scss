@@ -1,0 +1,98 @@
+.card-content {
+    width: 90%;
+    height: 90%;
+    --ion-background-color:white;
+    margin-left: 5%;
+}
+ion-card-header {
+    position: fixed;
+}
+ion-card-title {
+    justify-content: center;
+}
+
+ion-content {
+    --ion-background-color:#FFF;
+}
+
+ion-img {
+    height: 200px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.card-list {
+    height: 50px !important;
+    width: 155px;
+    --ion-background-color:#f71c55;
+    margin: 1px;
+}
+
+ion-label {
+    text-align: center;
+    height: 100%;
+}
+ 
+.item-list {
+    margin: 5px;
+}
+
+ion-button {
+   height: 30px;
+   width: 100px;
+}
+
+.center {
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+}
+
+.div-btn-edit {
+    margin-top: 20px;
+    width: 100%;
+    text-align: center !important;
+}
+
+.devider {
+    margin: 0;
+    width: 90%;
+}
+
+.diary {
+    background-color: #f71c55;
+    height: 200px;
+}
+
+ion-card-subtitle {
+    color: #FFF;
+}
+
+ion-card-content {
+    padding: 0px;
+    padding-left: 4px;
+    padding-top: 4px;
+    color: white;
+    font-weight: bold;
+
+}
+
+.label-card {
+    font-size: 15px;
+}
+
+ion-label {
+    height: 20px;
+}
+
+ion-card {
+    border: 1px solid #c47f7f;
+}
+
+.btn {
+    text-align: end;
+    width: 95%;
+    margin-bottom: 5px;
+    margin-right: 5px;
+}
