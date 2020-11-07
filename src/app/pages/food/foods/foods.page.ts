@@ -23,9 +23,7 @@ export class FoodsPage implements OnInit {
   }
 
   async ionViewWillEnter() {
-    setTimeout(() => {
-      this.load();
-    }, 1000);
+    await this.load();
   }
 
   async load() {

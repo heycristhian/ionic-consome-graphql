@@ -62,6 +62,7 @@ export class FoodDaoService {
         query: `
           mutation {
             saveFood(foodInput: {
+              id:"${food.id}"
               name:"${food.name}"
               protein:${food.protein}
               carbohydrate:${food.carbohydrate}
