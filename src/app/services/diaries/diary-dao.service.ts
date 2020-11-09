@@ -43,7 +43,7 @@ export class DiaryDaoService {
     })
     .then(res => res.json())
     .then(data => {
-      this.totalCalorie = data.data.totalCalorie;
+      this.totalCalorie = data?.data?.totalCalorie;
       console.log(this.totalCalorie)
       return this.totalCalorie
     });

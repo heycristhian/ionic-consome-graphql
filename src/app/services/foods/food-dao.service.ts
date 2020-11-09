@@ -51,6 +51,7 @@ export class FoodDaoService {
   async save(food: Food): Promise<void> {
     let authRequest = await this.storage.get("auth-data")
     let token: string = "Bearer " + authRequest['token'];
+    let id = food.id === undefined ?  '' : `id:"${food.id}"`;
 
     fetch(env.url('graphql'), {
       method: 'POST',
@@ -62,7 +63,7 @@ export class FoodDaoService {
         query: `
           mutation {
             saveFood(foodInput: {
-              id:"${food.id}"
+              ${id}
               name:"${food.name}"
               protein:${food.protein}
               carbohydrate:${food.carbohydrate}
