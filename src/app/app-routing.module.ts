@@ -44,7 +44,8 @@ const routes: Routes = [
   },
   {
     path: 'diary-detail',
-    loadChildren: () => import('./pages/diary/diary-detail/diary-detail.module').then( m => m.DiaryDetailPageModule)
+    loadChildren: () => import('./pages/diary/diary-detail/diary-detail.module').then( m => m.DiaryDetailPageModule),
+    canActivate: [AuthGuardService]
   },
 ];
 
